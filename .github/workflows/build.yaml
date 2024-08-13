@@ -33,7 +33,10 @@ jobs:
           
       - name: Print Image ID
         run: |
-          echo ${{ steps.build.outputs.imageid }}
-          echo ${{ fromJSON(steps.build.outputs.metadata).image_name }}
-          echo ${{ steps.build.outputs.metadata.image_name }}
+          echo ${{ steps.build.outputs.buildx.build.ref }}
+          echo ${{ steps.build.outputs[buildx.build.ref] }}
+          echo ${{ fromJSON(steps.build.outputs.metadata).buildx.build.ref }}
+          echo ${{ fromJSON(steps.build.outputs.metadata)[buildx.build.ref] }}
+          echo ${{ steps.build.outputs.metadata.buildx.build.ref }}
+          echo ${{ steps.build.outputs.metadata[buildx.build.ref] }}
           echo ${{ toJSON(steps.build.outputs.metadata) }}
