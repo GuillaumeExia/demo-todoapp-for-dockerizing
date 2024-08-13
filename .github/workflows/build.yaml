@@ -27,8 +27,8 @@ jobs:
         with:
           platforms: linux/amd64
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/todoapp:latest
-          cache-from: type=registry,ref=${{ vars.DOCKERHUB_USERNAME }}/todoapp:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/todo:latest
+          cache-from: type=registry,ref=${{ vars.DOCKERHUB_USERNAME }}/todo:latest
           cache-to: type=inline
           
       - name: Print Image ID
