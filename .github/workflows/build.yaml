@@ -34,4 +34,4 @@ jobs:
       - name: Print Image ID
         run: |
           echo ${{ steps.build.outputs.imageid }}
-          echo ${{ steps.build.outputs.metadata }}
+          echo ${{ fromJSON(steps.build.outputs.metadata) }}
