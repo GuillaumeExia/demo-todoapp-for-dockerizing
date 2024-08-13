@@ -32,4 +32,6 @@ jobs:
           cache-to: type=inline
           
       - name: Print Image ID
-        run: echo ${{ steps.build.outputs.imageid }}
+        run: |
+          echo ${{ steps.build.outputs.imageid }}
+          echo ${{ steps.build.outputs.metadata }}
