@@ -31,9 +31,6 @@ jobs:
           cache-from: type=registry,ref=${{ vars.DOCKERHUB_USERNAME }}/todo:latest
           cache-to: type=inline
           
-      - name: Print Image ID
+      - name: Print Build Output
         run: |
-          echo ${{ steps.build.outputs.buildx.build.ref }}
-          echo ${{ fromJSON(steps.build.outputs.metadata).buildx.build.ref }}
-          echo ${{ steps.build.outputs.metadata.buildx.build.ref }}
           echo ${{ toJSON(steps.build.outputs.metadata) }}
