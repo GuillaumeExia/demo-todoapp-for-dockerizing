@@ -30,6 +30,7 @@ jobs:
           images: ${{ vars.DOCKERHUB_USERNAME }}/todo
           tags: |
             type=sha,format=short,prefix=
+            type=raw,value={{date 'YYYYMMDD.HHmmss' }}
       
       - name: Build and Push
         id: build
