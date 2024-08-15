@@ -53,7 +53,7 @@ jobs:
     steps:
       - name: Print Tags
         run: |
-          echo ${{ toJSON(needs.build.outputs.tags) }}
+          echo ${{ needs.build.outputs.tags[0] }}
           echo $TAGS
         env:
           TAGS: ${{ toJSON(needs.build.outputs.tags) }}
