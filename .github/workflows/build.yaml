@@ -27,7 +27,7 @@ jobs:
         with:
           images: ${{ vars.DOCKERHUB_USERNAME }}/todo
           tags: |
-            type=sha,format=short
+            type=sha,format=short,prefix=
       
       - name: Build and Push
         id: build
