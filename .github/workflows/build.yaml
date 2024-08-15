@@ -24,9 +24,10 @@ jobs:
       - name: Extract Metadata
         id: meta
         uses: docker/metadata-action@v5
-        images: ${{ vars.DOCKERHUB_USERNAME }}/todo
-        tags: |
-          type=sha,format=short
+        with:
+          images: ${{ vars.DOCKERHUB_USERNAME }}/todo
+          tags: |
+            type=sha,format=short
       
       - name: Build and Push
         id: build
