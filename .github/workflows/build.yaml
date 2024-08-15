@@ -29,8 +29,8 @@ jobs:
         with:
           images: ${{ vars.DOCKERHUB_USERNAME }}/todo
           tags: |
-            type=sha,format=short,prefix=
-            type=raw,value={{date 'YYYYMMDD.HHmmss' }}
+            type=sha,format=short,prefix={{date 'YYYYMMDD.HHmmss' }}-
+            #type=raw,value={{date 'YYYYMMDD.HHmmss' }}
       
       - name: Build and Push
         id: build
@@ -53,7 +53,7 @@ jobs:
     steps:
       - name: Print Tags
         run: |
-          echo ${{ needs.build.outputs.tags[0] }}
+          echo ${{ toJSON(needs.build.outputs.tags) }}
           echo $TAGS
         env:
           TAGS: ${{ toJSON(needs.build.outputs.tags) }}
